@@ -1,7 +1,7 @@
 # TODO: Change the name of the org 
 org: skodie
 app: serverless-project4
-service: serverless-project4
+service: serverless-app
 
 plugins:
   - serverless-webpack
