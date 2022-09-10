@@ -42,7 +42,7 @@ export class TodosAccess {
             ExpressionAttributeValues: {
                 ':userId': userId
             }
-        }).promise()
+        }).promise();
 
         const items = result.Items
 
