@@ -20,7 +20,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       'Access-Control-Allow-Credentials': true
     },
     body: JSON.stringify({
-      items
+      "items": items
     })
   }
 }
