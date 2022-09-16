@@ -30,7 +30,8 @@ export default class App extends Component<AppProps, AppState> {
   }
 
   handleLogout() {
-    this.props.auth.logout()
+    this.props.auth.logout();
+    this.props.history.replace('/');
   }
 
   render() {
