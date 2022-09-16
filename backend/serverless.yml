@@ -162,6 +162,11 @@ functions:
         Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
         Action:
+          - dynamodb:Query
+          - dynamodb:UpdateItem
+        Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.TODOS_CREATED_AT_INDEX}
+      - Effect: Allow
+        Action:
           - xray:PutTraceSegments
         Resource: 
           - '*'
@@ -186,6 +191,11 @@ functions:
         Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
         Action:
+          - dynamodb:Query
+          - dynamodb:DeleteItem
+        Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.TODOS_CREATED_AT_INDEX}
+      - Effect: Allow
+        Action:
           - xray:PutTraceSegments
         Resource: 
           - '*'
@@ -207,6 +217,10 @@ functions:
         Action:
           - dynamodb:Query
         Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
+      - Effect: Allow
+        Action:
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.TODOS_CREATED_AT_INDEX}
       - Effect: Allow
         Action:
           - s3:*
