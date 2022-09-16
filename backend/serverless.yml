@@ -157,6 +157,7 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - dynamodb:Query
           - dynamodb:UpdateItem
         Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
@@ -180,6 +181,7 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - dynamodb:Query
           - dynamodb:DeleteItem
         Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
@@ -201,6 +203,10 @@ functions:
           reqValidatorName: RequestBodyValidator
     iamRoleStatementsInherit: true
     iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Query
+        Resource: arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
         Action:
           - s3:*
